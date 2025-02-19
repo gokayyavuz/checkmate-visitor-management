@@ -1,0 +1,9 @@
+# Alle Dateien hinzufügen
+git add .
+
+# Commit mit Nachricht erstellen
+git commit -m "Initial Django project setup"
+
+# Push auf GitHub
+git branch -M main
+git push -u origin main
