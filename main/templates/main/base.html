@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckMate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100 text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto flex items-center justify-between px-6 py-4">
+            <div class="flex-1"></div>
+            <div class="flex-1 flex justify-center">
+                <a href="http://127.0.0.1:8000/" class="text-2xl font-bold text-blue-600">CheckMate</a>
+            </div>
+            <div class="flex-1 flex justify-end space-x-6">
+                <a href="/finish/" class="text-gray-700 hover:text-blue-600">Home</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600">Services</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hauptinhalt -->
+    <div class="flex-1 container mx-auto mt-12 px-6">
+        {% block header %}
+        <div class="text-center">
+            <h2 class="text-4xl font-bold text-gray-900">Das ist meine Überschrift</h2>
+            <p class="mt-2 text-lg text-gray-600">Hier steht der Beschreibungstext</p>
+        </div>
+        {% endblock header %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow-md w-full mt-auto">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col items-center">
+                <span class="text-2xl font-bold text-blue-600">CheckMate</span>
+                <p class="text-gray-500 mt-2 text-center">
+                    Smarte Besucherverwaltung für Unternehmen
+                </p>
+            </div>
+            <div class="flex justify-center mt-4 space-x-6">
+                <a href="#" class="text-gray-600 hover:text-blue-600">About</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600">Privacy Policy</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600">Terms of Service</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600">Contact</a>
+            </div>
+            <hr class="my-6 border-gray-300">
+            <p class="text-center text-gray-500 text-sm">
+                © 2025 CheckMate. Alle Rechte vorbehalten.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
