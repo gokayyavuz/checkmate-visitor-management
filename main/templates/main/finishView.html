@@ -1,11 +1,38 @@
-{% extends 'main/base.html' %}
+{% extends "main/base.html" %}
 
-<div class="flex-1 container mx-auto mt-12 px-6">
-    {% block header %}
-    <div class="text-center">
-        <h2 class="text-4xl font-bold text-gray-900">Vielen Dank für Ihre Anmeldung! ✅</h2>
-        <p class="mt-2 text-lg text-gray-600">Falls weitere Informationen benötigt werden, wird sich unser Empfangsteam mit Ihnen in Verbindung setzen. 
-            <br> Bei Fragen oder Änderungswünschen können Sie sich jederzeit direkt an den Empfang wenden.</p>
+{% block header %}
+<div class="container mx-auto max-w-2xl mt-12 bg-white p-8 rounded-lg shadow-md text-center">
+    
+    <!-- Erfolgreiche Anmeldung Nachricht -->
+    <h2 class="text-3xl font-bold text-green-600 flex items-center justify-center gap-2">
+        Vielen Dank für Ihre Anmeldung!
+    </h2>
+
+    <p class="text-gray-600 mt-2">
+        Falls weitere Informationen benötigt werden, wird sich unser Empfangsteam mit Ihnen in Verbindung setzen.
+        <br>Bei Fragen oder Änderungswünschen können Sie sich jederzeit direkt an den Empfang wenden.
+    </p>
+
+    <!-- Infobox für Bestätigung -->
+    <div class="mt-6 bg-gray-100 p-4 rounded-lg shadow">
+        <h3 class="text-lg font-semibold text-gray-800">Ihre Besucherdaten</h3>
+        <p class="text-gray-600 mt-2">Ihr Eintrag wurde erfolgreich gespeichert.</p>
+        <ul class="mt-2 text-gray-700">
+            <li><strong>Name:</strong> Max Mustermann</li>
+            <li><strong>Standort:</strong> München</li>
+            <li><strong>Besuchsdatum:</strong> 10. April 2024</li>
+        </ul>
     </div>
-    {% endblock header %}
+
+    <!-- Button zurück zur Startseite -->
+    <div class="mt-6">
+        <a href="/" class="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700">
+            Zur Startseite
+        </a>
+        <a href="/anmeldung/" class="ml-4 bg-gray-600 text-white px-6 py-2 rounded-lg shadow hover:bg-gray-700">
+            Neuen Besucher registrieren
+        </a>
+    </div>
+
 </div>
+{% endblock %}
