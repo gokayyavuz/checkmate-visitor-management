@@ -1,9 +1,38 @@
-# Alle Dateien hinzufügen
-git add .
+# Virtuelle Umgebung (Python venv)
+venv/
+env/
 
-# Commit mit Nachricht erstellen
-git commit -m "Initial Django project setup"
+# Bytecode-Dateien von Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 
-# Push auf GitHub
-git branch -M main
-git push -u origin main
+# SQLite-Datenbank (falls du SQLite nutzt)
+db.sqlite3
+
+# Logs und temporäre Dateien
+*.log
+*.pot
+*.swp
+*~
+
+# IDE-/Editor-spezifische Dateien
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Systemdateien von Mac/Linux/Windows
+.DS_Store
+Thumbs.db
+
+# Umgebungsvariablen-Datei (z. B. API-Keys)
+.env
+
+# Migrations-Cache (falls du alte Migrationsdateien ignorieren willst)
+**/migrations/*.pyc
+**/migrations/__pycache__/
+
+# Static & Media (falls nicht notwendig im Repo)
+staticfiles/
+media/
