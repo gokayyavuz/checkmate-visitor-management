@@ -17,7 +17,7 @@ class Besucher(models.Model):
     standort = models.CharField(choices=STANDORTE, max_length=50, blank=False, null=False)
     besuchstag = models.DateField(default=date.today, blank=False, null=False)
     besuchsgrund = models.TextField(blank=False, null=False)
-    weitere_informationen = models.TextField(blank=False, null=False)
+    weitere_informationen = models.TextField()
 
     def __str__(self):
         return f"{self.vorname} {self.nachname} - {self.standort}"

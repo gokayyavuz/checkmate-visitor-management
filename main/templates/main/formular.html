@@ -1,9 +1,74 @@
 {% extends 'main/base.html' %}
-<div class="flex-1 container mx-auto mt-12 px-6">
-    {% block header %}
+{% load static %}
+
+{% block header %}
+<div class="container mx-auto max-w-4xl bg-white p-10 rounded-lg shadow-md">
     <div class="text-center">
-        <h2 class="text-4xl font-bold text-gray-900">Herzlich Willkommen!👋</h2>
-        <p class="mt-2 text-lg text-gray-600">Bitte füllen Sie das Formular aus, um sich bei dem Unternehmen XY als Besucher zu registrieren.</p>
+        <h2 class="text-5xl font-bold text-gray-900">Herzlich Willkommen! 👋</h2>
+        <p class="mt-4 text-lg text-gray-600">
+            Bitte füllen Sie das Formular aus, um sich bei dem Unternehmen XY als Besucher zu registrieren.
+        </p>
     </div>
-    {% endblock header %}
 </div>
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto max-w-4xl mt-10 bg-white p-10 rounded-lg shadow-md mb-16"> 
+    <form action="{% url 'formular' %}" method="post" enctype="multipart/form-data" class="space-y-8">
+        {% csrf_token %}
+
+        <!-- Grid Layout für Felder -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="w-full">
+                <label class="label label-text font-semibold text-gray-700" for="vorname">Vorname</label>
+                <input type="text" name="vorname" id="vorname" placeholder="Max" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" />
+            </div>
+
+            <div class="w-full">
+                <label class="label label-text font-semibold text-gray-700" for="nachname">Nachname</label>
+                <input type="text" name="nachname" id="nachname" placeholder="Mustermann" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" />
+            </div>
+
+            <div class="w-full">
+                <label class="label label-text font-semibold text-gray-700" for="telefon">Telefon</label>
+                <input type="text" name="telefon" id="telefon" placeholder="+49 123 456 789" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" />
+            </div>
+
+            <div class="w-full">
+                <label class="label label-text font-semibold text-gray-700" for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="max@example.com" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" />
+            </div>
+
+            <div class="w-full">
+                <label class="label label-text font-semibold text-gray-700" for="standort">Standort</label>
+                <select name="standort" id="standort" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500">
+                    <option value="" disabled selected>Bitte Standort auswählen</option>
+                    <option value="München">München</option>
+                    <option value="Berlin">Berlin</option>
+                    <option value="Hamburg">Hamburg</option>
+                    <option value="Stuttgart">Stuttgart</option>
+                </select>
+            </div>
+
+            <div class="w-full">
+                <label class="label label-text font-semibold text-gray-700" for="besuchstag">Tag des Besuchs</label>
+                <input type="date" name="besuchstag" id="besuchstag" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" />
+            </div>
+        </div>
+
+        <div class="w-full">
+            <label class="label label-text font-semibold text-gray-700" for="besuchsgrund">Besuchsgrund</label>
+            <textarea name="besuchsgrund" id="besuchsgrund" rows="3" placeholder="Geben Sie den Grund für Ihren Besuch ein" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500"></textarea>
+        </div>
+
+        <div class="w-full">
+            <label class="label label-text font-semibold text-gray-700" for="weitere_informationen">Weitere Informationen</label>
+            <textarea name="weitere_informationen" id="weitere_informationen" rows="3" placeholder="Zusätzliche Informationen (optional)" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-lg shadow-md hover:bg-gray-800 transition text-lg font-semibold">
+            Absenden
+        </button>
+    </form>
+</div>
+{% endblock %}
