@@ -21,51 +21,80 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="w-full">
                 <label class="label label-text font-semibold text-gray-700" for="vorname">Vorname</label>
-                <input type="text" name="vorname" id="vorname" placeholder="Max" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" />
+                <input type="text" name="vorname" id="vorname" placeholder="Max" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" value="{{ form.vorname.value|default_if_none:'' }}" {% if form.vorname.errors %} border-red-500 bg-red-50 {% endif %} />
+                {% if form.vorname.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.vorname.errors.0 }}</p>
+                {% endif %}
             </div>
 
             <div class="w-full">
                 <label class="label label-text font-semibold text-gray-700" for="nachname">Nachname</label>
-                <input type="text" name="nachname" id="nachname" placeholder="Mustermann" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" />
+                <input type="text" name="nachname" id="nachname" placeholder="Mustermann" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" value="{{ form.nachname.value|default_if_none:'' }}" {% if form.vorname.errors %} border-red-500 bg-red-50 {% endif %}/>
+                {% if form.nachname.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.nachname.errors.0 }}</p>
+                {% endif %}
             </div>
 
             <div class="w-full">
                 <label class="label label-text font-semibold text-gray-700" for="telefon">Telefon</label>
-                <input type="text" name="telefon" id="telefon" placeholder="+49 123 456 789" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" />
+                <input type="text" name="telefon" id="telefon" placeholder="+49 123 456 789" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" value="{{ form.telefon.value|default_if_none:'' }}" {% if form.telefon.errors %} border-red-500 bg-red-50 {% endif %}/>
+                {% if form.telefon.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.telefon.errors.0 }}</p>
+                {% endif %}
             </div>
 
             <div class="w-full">
                 <label class="label label-text font-semibold text-gray-700" for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="max@example.com" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" />
+                <input type="email" name="email" id="email" placeholder="max@example.com" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" value="{{ form.email.value|default_if_none:'' }}" {% if form.vorname.errors %} border-red-500 bg-red-50 {% endif %}/>
+                {% if form.email.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.email.errors.0 }}</p>
+                {% endif %}
             </div>
 
             <div class="w-full">
                 <label class="label label-text font-semibold text-gray-700" for="standort">Standort</label>
-                <select name="standort" id="standort" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500">
-                    <option value="" disabled selected>Bitte Standort auswählen</option>
-                    <option value="München">München</option>
-                    <option value="Berlin">Berlin</option>
-                    <option value="Hamburg">Hamburg</option>
-                    <option value="Stuttgart">Stuttgart</option>
+                <select name="standort" id="standort" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" {% if form.vorname.errors %} border-red-500 bg-red-50 {% endif %}>
+                    <option value="" disabled {% if not form.standort.value %}selected{% endif %}>Bitte Standort auswählen</option>
+                    <option value="München" {% if form.standort.value == "München" %}selected{% endif %}>München</option>
+                    <option value="Berlin" {% if form.standort.value == "Berlin" %}selected{% endif %}>Berlin</option>
+                    <option value="Hamburg" {% if form.standort.value == "Hamburg" %}selected{% endif %}>Hamburg</option>
+                    <option value="Stuttgart" {% if form.standort.value == "Stuttgart" %}selected{% endif %}>Stuttgart</option>
                 </select>
+                {% if form.standort.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.standort.errors.0 }}</p>
+                {% endif %}
             </div>
 
             <div class="w-full">
                 <label class="label label-text font-semibold text-gray-700" for="besuchstag">Tag des Besuchs</label>
-                <input type="date" name="besuchstag" id="besuchstag" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" />
+                <input type="date" name="besuchstag" id="besuchstag" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" value="{{ form.besuchstag.value|default_if_none:'' }}" {% if form.vorname.errors %} border-red-500 bg-red-50 {% endif %}/>
+                {% if form.besuchstag.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.besuchstag.errors.0 }}</p>
+                {% endif %}
             </div>
         </div>
 
         <div class="w-full">
             <label class="label label-text font-semibold text-gray-700" for="besuchsgrund">Besuchsgrund</label>
-            <textarea name="besuchsgrund" id="besuchsgrund" rows="3" placeholder="Geben Sie den Grund für Ihren Besuch ein" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500"></textarea>
+            <textarea name="besuchsgrund" id="besuchsgrund" rows="3" placeholder="Geben Sie den Grund für Ihren Besuch ein" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" value="{{ form.besuchsgrund.value|default_if_none:'' }}" {% if form.vorname.errors %} border-red-500 bg-red-50 {% endif %}></textarea>
+            {% if form.besuchsgrund.errors %}
+                <p class="text-red-600 text-sm mt-1">{{ form.besuchsgrund.errors.0 }}</p>
+            {% endif %}
         </div>
 
         <div class="w-full">
             <label class="label label-text font-semibold text-gray-700" for="weitere_informationen">Weitere Informationen</label>
-            <textarea name="weitere_informationen" id="weitere_informationen" rows="3" placeholder="Zusätzliche Informationen (optional)" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500"></textarea>
+            <textarea name="weitere_informationen" id="weitere_informationen" rows="3" placeholder="Zusätzliche Informationen (optional)" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" value="{{ form.vorname.value|default_if_none:'' }}" {% if form.vorname.errors %} border-red-500 bg-red-50 {% endif %}></textarea>
+            {% if form.weitere_informationen.errors %}
+                <p class="text-red-600 text-sm mt-1">{{ form.weitere_informationen.errors.0 }}</p>
+            {% endif %}
         </div>
 
+        {% if form.errors %}
+        <div class="mt-4 p-4 bg-red-50 border-l-4 border-red-500 text-red-700">
+            <p class="font-bold">Die eingegebenen Daten sind nicht korrekt. Bitte überprüfen Sie Ihre Eingaben.</p>
+        </div>
+        {% endif %}        
         <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-lg shadow-md hover:bg-gray-800 transition text-lg font-semibold">
             Absenden
         </button>

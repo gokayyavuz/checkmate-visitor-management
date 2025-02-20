@@ -1,23 +1,30 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Besucher
 from django.http import HttpResponse
-from . import forms
+from .forms import RegisterVisitor
 
 # Create your views here.
 
-def formular(response):
-    if response.method == 'POST':
-        form = forms.RegisterVisitor(response.POST)
+def formular(request):
+    if request.method == 'POST':
+        form = RegisterVisitor(request.POST)
+        print("Empfangene POST-Daten:", request.POST)  # Debugging
+        
         if form.is_valid():
-            print('Versuch es zu speichern')
-            form.save()
-            print('wurde gespeichert')
-            return redirect("finishView")
+            besucher = form.save()
+            print("Besucher gespeichert:", besucher)
+            return redirect("finishView", besucher.id)
+        else:
+            print("Formular ist ungültig:", form.errors)  # Debugging
+
     else:
-        form = forms.RegisterVisitor()
-    return render(response, 'main/formular.html', {'form': form})
+        form = RegisterVisitor()
+
+    return render(request, 'main/formular.html', {'form': form})
 
 
-def finishView(response):
-    besucher = Besucher.objects.get()
-    return render(response, 'main/finishView.html', {"bs": besucher})
+
+def finishView(request, besucher_id):
+    besucher = get_object_or_404(Besucher, id=besucher_id)
+    return render(request, "main/finishView.html", {"besucher": besucher})
+
