@@ -28,3 +28,14 @@ def finishView(request, besucher_id):
     besucher = get_object_or_404(Besucher, id=besucher_id)
     return render(request, "main/finishView.html", {"besucher": besucher})
 
+def aboutus(request):
+    return render(request, "main/aboutus.html")
+
+def terms(request):
+    return render(request, "main/terms.html")
+
+def home(request):
+    return render(request, "main/home.html")
+
+def contact(request):
+    return render(request, "main/contact.html")

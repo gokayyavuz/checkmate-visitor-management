@@ -2,10 +2,10 @@
 {% load static %}
 
 {% block header %}
-<div class="container mx-auto max-w-4xl bg-white p-10 rounded-lg shadow-md">
+<div class="container mx-auto max-w-4xl bg-white p-6 md:p-10 rounded-lg shadow-md">
     <div class="text-center">
-        <h2 class="text-5xl font-bold text-gray-900">Herzlich Willkommen! 👋</h2>
-        <p class="mt-4 text-lg text-gray-600">
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900">Herzlich Willkommen! 👋</h2>
+        <p class="mt-3 md:mt-4 text-base md:text-lg text-gray-600">
             Bitte füllen Sie das Formular aus, um sich bei dem Unternehmen XY als Besucher zu registrieren.
         </p>
     </div>
@@ -13,47 +13,65 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mx-auto max-w-4xl mt-10 bg-white p-10 rounded-lg shadow-md mb-16"> 
-    <form action="{% url 'formular' %}" method="post" enctype="multipart/form-data" class="space-y-8">
+<div class="container mx-auto max-w-4xl mt-6 md:mt-10 bg-white p-6 md:p-10 rounded-lg shadow-md mb-16"> 
+    <form action="{% url 'formular' %}" method="post" enctype="multipart/form-data" class="space-y-6 md:space-y-8">
         {% csrf_token %}
 
-        <!-- Grid Layout für Felder -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Responsive Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+            <!-- Vorname -->
             <div class="w-full">
-                <label class="label label-text font-semibold text-gray-700" for="vorname">Vorname</label>
-                <input type="text" name="vorname" id="vorname" placeholder="Max" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" value="{{ form.vorname.value|default_if_none:'' }}" {% if form.vorname.errors %} border-red-500 bg-red-50 {% endif %} />
+                <label class="block text-gray-700 font-semibold" for="vorname">Vorname</label>
+                <input type="text" name="vorname" id="vorname" placeholder="Dein Vorname" 
+                    class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500"
+                    value="{{ form.vorname.value|default_if_none:'' }}" 
+                    {% if form.vorname.errors %} class="border-red-500 bg-red-50" {% endif %}/>
                 {% if form.vorname.errors %}
                     <p class="text-red-600 text-sm mt-1">{{ form.vorname.errors.0 }}</p>
                 {% endif %}
             </div>
 
+            <!-- Nachname -->
             <div class="w-full">
-                <label class="label label-text font-semibold text-gray-700" for="nachname">Nachname</label>
-                <input type="text" name="nachname" id="nachname" placeholder="Mustermann" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" value="{{ form.nachname.value|default_if_none:'' }}" {% if form.vorname.errors %} border-red-500 bg-red-50 {% endif %}/>
+                <label class="block text-gray-700 font-semibold" for="nachname">Nachname</label>
+                <input type="text" name="nachname" id="nachname" placeholder="Dein Nachname" 
+                    class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500"
+                    value="{{ form.nachname.value|default_if_none:'' }}" 
+                    {% if form.nachname.errors %} class="border-red-500 bg-red-50" {% endif %}/>
                 {% if form.nachname.errors %}
                     <p class="text-red-600 text-sm mt-1">{{ form.nachname.errors.0 }}</p>
                 {% endif %}
             </div>
 
+            <!-- Telefon -->
             <div class="w-full">
-                <label class="label label-text font-semibold text-gray-700" for="telefon">Telefon</label>
-                <input type="text" name="telefon" id="telefon" placeholder="+49 123 456 789" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" value="{{ form.telefon.value|default_if_none:'' }}" {% if form.telefon.errors %} border-red-500 bg-red-50 {% endif %}/>
+                <label class="block text-gray-700 font-semibold" for="telefon">Telefon</label>
+                <input type="text" name="telefon" id="telefon" placeholder="+49 123 456 789"
+                    class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500"
+                    value="{{ form.telefon.value|default_if_none:'' }}"
+                    {% if form.telefon.errors %} class="border-red-500 bg-red-50" {% endif %}/>
                 {% if form.telefon.errors %}
                     <p class="text-red-600 text-sm mt-1">{{ form.telefon.errors.0 }}</p>
                 {% endif %}
             </div>
 
+            <!-- Email -->
             <div class="w-full">
-                <label class="label label-text font-semibold text-gray-700" for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="max@example.com" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" value="{{ form.email.value|default_if_none:'' }}" {% if form.vorname.errors %} border-red-500 bg-red-50 {% endif %}/>
+                <label class="block text-gray-700 font-semibold" for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="deine@email.com"
+                    class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500"
+                    value="{{ form.email.value|default_if_none:'' }}"
+                    {% if form.email.errors %} class="border-red-500 bg-red-50" {% endif %}/>
                 {% if form.email.errors %}
                     <p class="text-red-600 text-sm mt-1">{{ form.email.errors.0 }}</p>
                 {% endif %}
             </div>
 
+            <!-- Standort -->
             <div class="w-full">
-                <label class="label label-text font-semibold text-gray-700" for="standort">Standort</label>
-                <select name="standort" id="standort" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" {% if form.vorname.errors %} border-red-500 bg-red-50 {% endif %}>
+                <label class="block text-gray-700 font-semibold" for="standort">Standort</label>
+                <select name="standort" id="standort"
+                    class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500">
                     <option value="" disabled {% if not form.standort.value %}selected{% endif %}>Bitte Standort auswählen</option>
                     <option value="München" {% if form.standort.value == "München" %}selected{% endif %}>München</option>
                     <option value="Berlin" {% if form.standort.value == "Berlin" %}selected{% endif %}>Berlin</option>
@@ -65,36 +83,47 @@
                 {% endif %}
             </div>
 
+            <!-- Besuchstag -->
             <div class="w-full">
-                <label class="label label-text font-semibold text-gray-700" for="besuchstag">Tag des Besuchs</label>
-                <input type="date" name="besuchstag" id="besuchstag" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" value="{{ form.besuchstag.value|default_if_none:'' }}" {% if form.vorname.errors %} border-red-500 bg-red-50 {% endif %}/>
+                <label class="block text-gray-700 font-semibold" for="besuchstag">Tag des Besuchs</label>
+                <input type="date" name="besuchstag" id="besuchstag"
+                    class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500"
+                    value="{{ form.besuchstag.value|default_if_none:'' }}"
+                    {% if form.besuchstag.errors %} class="border-red-500 bg-red-50" {% endif %}/>
                 {% if form.besuchstag.errors %}
                     <p class="text-red-600 text-sm mt-1">{{ form.besuchstag.errors.0 }}</p>
                 {% endif %}
             </div>
-        </div>
 
-        <div class="w-full">
-            <label class="label label-text font-semibold text-gray-700" for="besuchsgrund">Besuchsgrund</label>
-            <textarea name="besuchsgrund" id="besuchsgrund" rows="3" placeholder="Geben Sie den Grund für Ihren Besuch ein" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" value="{{ form.besuchsgrund.value|default_if_none:'' }}" {% if form.vorname.errors %} border-red-500 bg-red-50 {% endif %}></textarea>
-            {% if form.besuchsgrund.errors %}
-                <p class="text-red-600 text-sm mt-1">{{ form.besuchsgrund.errors.0 }}</p>
-            {% endif %}
-        </div>
+            <!-- Besuchsgrund -->
+            <div class="w-full md:col-span-2">
+                <label class="block text-gray-700 font-semibold" for="besuchsgrund">Besuchsgrund</label>
+                <textarea name="besuchsgrund" id="besuchsgrund" rows="3"
+                    class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500"
+                    placeholder="Geben Sie den Grund für Ihren Besuch ein"></textarea>
+                {% if form.besuchsgrund.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.besuchsgrund.errors.0 }}</p>
+                {% endif %}
+            </div>
 
-        <div class="w-full">
-            <label class="label label-text font-semibold text-gray-700" for="weitere_informationen">Weitere Informationen</label>
-            <textarea name="weitere_informationen" id="weitere_informationen" rows="3" placeholder="Zusätzliche Informationen (optional)" class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" value="{{ form.vorname.value|default_if_none:'' }}" {% if form.vorname.errors %} border-red-500 bg-red-50 {% endif %}></textarea>
-            {% if form.weitere_informationen.errors %}
-                <p class="text-red-600 text-sm mt-1">{{ form.weitere_informationen.errors.0 }}</p>
-            {% endif %}
+            <!-- Weitere Informationen -->
+            <div class="w-full md:col-span-2">
+                <label class="block text-gray-700 font-semibold" for="weitere_informationen">Weitere Informationen</label>
+                <textarea name="weitere_informationen" id="weitere_informationen" rows="3"
+                    class="input w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500"
+                    placeholder="Zusätzliche Informationen (optional)"></textarea>
+                {% if form.weitere_informationen.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.weitere_informationen.errors.0 }}</p>
+                {% endif %}
+            </div>
         </div>
 
         {% if form.errors %}
         <div class="mt-4 p-4 bg-red-50 border-l-4 border-red-500 text-red-700">
-            <p class="font-bold">Die eingegebenen Daten sind nicht korrekt. Bitte überprüfen Sie Ihre Eingaben.</p>
+            <p class="font-bold">❌ Die eingegebenen Daten sind nicht korrekt. Bitte überprüfen Sie Ihre Eingaben.</p>
         </div>
         {% endif %}        
+
         <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-lg shadow-md hover:bg-gray-800 transition text-lg font-semibold">
             Absenden
         </button>

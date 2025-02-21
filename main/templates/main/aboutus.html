@@ -1,0 +1,69 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Über uns - CheckMate{% endblock title %}
+
+{% block header %}
+<div class="container mx-auto max-w-4xl bg-white p-10 rounded-lg shadow-md text-center">
+    <h1 class="text-5xl font-bold text-gray-900">Über CheckMate</h1>
+    <p class="mt-4 text-lg text-gray-600">
+        Die smarte Lösung für eine effiziente und digitale Besucherverwaltung.
+    </p>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="container mx-auto max-w-5xl mt-10 bg-white p-10 rounded-lg shadow-md mb-16">
+    
+    <!-- Unsere Mission -->
+    <section class="mb-12 text-center">
+        <h2 class="text-3xl font-bold text-gray-900">Unsere Mission</h2>
+        <p class="mt-4 text-gray-600 text-lg">
+            Wir glauben an die Digitalisierung von Geschäftsprozessen und die Optimierung von Abläufen.  
+            **CheckMate** wurde entwickelt, um Unternehmen dabei zu helfen, ihre Besucher effizient und sicher zu verwalten.
+        </p>
+    </section>
+
+    <!-- Warum CheckMate? -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 text-center">Warum CheckMate?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+            <div class="p-6 border rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold text-blue-600">🚀 Digitalisierung</h3>
+                <p class="text-gray-600 mt-2">Schluss mit Papierchaos! Alles läuft digital und effizient.</p>
+            </div>
+            <div class="p-6 border rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold text-blue-600">⏳ Zeitersparnis</h3>
+                <p class="text-gray-600 mt-2">Schnelle Registrierung und Verwaltung, damit Sie sich auf Ihr Geschäft konzentrieren können.</p>
+            </div>
+            <div class="p-6 border rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold text-blue-600">🔒 Datenschutz</h3>
+                <p class="text-gray-600 mt-2">Alle Daten sind sicher und DSGVO-konform gespeichert.</p>
+            </div>
+            <div class="p-6 border rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold text-blue-600">📊 Überblick</h3>
+                <p class="text-gray-600 mt-2">Alle Besuche auf einen Blick – einfach und übersichtlich.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unser Team -->
+    <section class="mb-12 text-center">
+        <h2 class="text-3xl font-bold text-gray-900">Wer steckt hinter CheckMate?</h2>
+        <p class="mt-4 text-gray-600 text-lg">
+            Ich bin ein leidenschaftlicher Tech-Enthusiast und Student mit einem Fokus auf Digitalisierung und Automatisierung.  
+            Mein Ziel ist es, Prozesse effizienter zu gestalten und Unternehmen mit smarten Lösungen zu unterstützen.
+        </p>
+    </section>
+
+    <!-- Call-to-Action -->
+    <div class="mt-12 text-center">
+        <h2 class="text-3xl font-bold text-gray-900">Bereit für die digitale Zukunft?</h2>
+        <p class="text-gray-600 mt-2">Testen Sie CheckMate jetzt kostenlos und optimieren Sie Ihre Besucherverwaltung.</p>
+        <a href="" class="mt-4 inline-block px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-blue-700 transition">
+            Unternehmen registrieren
+        </a>
+    </div>
+
+</div>
+{% endblock content %}

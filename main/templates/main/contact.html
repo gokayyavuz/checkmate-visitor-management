@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Kontakt - CheckMate{% endblock %}
+
+{% block header %} {% endblock %}
+
+{% block content %}
+<div class="bg-gray-100 pt-12 pb-24">
+    <div class="max-w-5xl mx-auto bg-white shadow-lg rounded-lg p-12">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-6">Kontaktiere uns</h2>
+        <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+            Hast du Fragen oder möchtest mehr über CheckMate erfahren? Fülle das Formular aus und unser Team wird sich so schnell wie möglich bei dir melden.
+        </p>
+
+        <form action="{% url 'contact' %}" method="post" class="grid grid-cols-2 gap-6">
+            {% csrf_token %}
+
+            <!-- Name -->
+            <div class="col-span-1">
+                <label for="name" class="block text-gray-700 font-semibold">Name</label>
+                <input type="text" id="name" name="name" class="w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" placeholder="Dein Name" required>
+            </div>
+
+            <!-- E-Mail -->
+            <div class="col-span-1">
+                <label for="email" class="block text-gray-700 font-semibold">E-Mail</label>
+                <input type="email" id="email" name="email" class="w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" placeholder="deine@email.com" required>
+            </div>
+
+            <!-- Betreff -->
+            <div class="col-span-2">
+                <label for="subject" class="block text-gray-700 font-semibold">Betreff</label>
+                <input type="text" id="subject" name="subject" class="w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" placeholder="Betreff eingeben" required>
+            </div>
+
+            <!-- Nachricht -->
+            <div class="col-span-2">
+                <label for="message" class="block text-gray-700 font-semibold">Nachricht</label>
+                <textarea id="message" name="message" rows="5" class="w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500" placeholder="Schreibe deine Nachricht hier..." required></textarea>
+            </div>
+
+            <!-- Absenden Button -->
+            <div class="col-span-2 flex justify-center">
+                <button type="submit" class="w-1/2 bg-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition">
+                    Nachricht senden
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

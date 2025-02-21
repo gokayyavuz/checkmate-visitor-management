@@ -1,0 +1,73 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %} Willkommen bei CheckMate {% endblock title %}
+
+{% block header %}
+<div class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-16 flex flex-col items-center text-center">
+    <h1 class="text-4xl font-bold">Digitale Besucherverwaltung leicht gemacht</h1>
+    <p class="mt-4 text-lg">Effiziente Besucherregistrierung für Unternehmen – sicher, digital und einfach.</p>
+    <a href="#" class="mt-6 px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-md hover:bg-gray-200 transition">
+        Jetzt Registrieren
+    </a>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Vorteile Sektion -->
+<section class="container mx-auto px-6 md:px-12 py-16">
+    <h2 class="text-3xl font-bold text-center text-gray-900">Warum CheckMate?</h2>
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:scale-105 transition">
+            <img src="{% static 'main/signin.png' %}" alt="Einfache Anmeldung" class="h-20 mx-auto mb-4">
+            <h3 class="text-xl font-semibold text-gray-800">Einfache Anmeldung</h3>
+            <p class="mt-2 text-gray-600">Schnelle und unkomplizierte Besucherregistrierung ohne Papierkram.</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:scale-105 transition">
+            <img src="{% static 'main/security.png' %}" alt="Sichere Daten" class="h-20 mx-auto mb-4">
+            <h3 class="text-xl font-semibold text-gray-800">Sichere Daten</h3>
+            <p class="mt-2 text-gray-600">DSGVO-konform mit verschlüsselter Speicherung für maximale Sicherheit.</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:scale-105 transition">
+            <img src="{% static 'main/dashboard_3.png' %}" alt="Übersichtliche Verwaltung" class="h-20 mx-auto mb-4">
+            <h3 class="text-xl font-semibold text-gray-800">Übersichtliche Verwaltung</h3>
+            <p class="mt-2 text-gray-600">Behalte alle Besucher und Standorte in einer zentralen Übersicht.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Funktionsweise -->
+<section class="bg-gray-100 py-16">
+    <div class="container mx-auto px-6 md:px-12">
+        <h2 class="text-3xl font-bold text-center text-gray-900">So funktioniert es</h2>
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="bg-white p-8 rounded-lg shadow-lg transform hover:scale-105 transition">
+                <h3 class="text-xl font-semibold text-gray-800">1. Besucher registrieren</h3>
+                <p class="mt-2 text-gray-600">Besucher geben ihre Daten einfach online ein.</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-lg transform hover:scale-105 transition">
+                <h3 class="text-xl font-semibold text-gray-800">2. Bestätigung erhalten</h3>
+                <p class="mt-2 text-gray-600">Nach der Anmeldung gibt es eine sofortige Bestätigung per E-Mail.</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-lg transform hover:scale-105 transition">
+                <h3 class="text-xl font-semibold text-gray-800">3. Verwaltung im Dashboard</h3>
+                <p class="mt-2 text-gray-600">Unternehmen behalten jederzeit den Überblick über ihre Besucher.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="bg-gradient-to-r from-blue-600 to-blue-400 text-white text-center py-16">
+    <h2 class="text-3xl font-bold">Bereit für eine digitale Besucherverwaltung?</h2>
+    <p class="mt-4 text-lg max-w-2xl mx-auto">
+        Starte jetzt mit CheckMate und optimiere deinen Besucherprozess.
+    </p>
+    <a href="{% url 'formular' %}" class="mt-6 inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-100 transition">
+        Kostenlos Testen
+    </a>
+</section>
+
+{% endblock %}

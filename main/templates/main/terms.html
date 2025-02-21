@@ -1,0 +1,85 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Nutzungsbedingungen - CheckMate{% endblock title %}
+
+{% block header %}
+<div class="container mx-auto max-w-4xl bg-white p-10 rounded-lg shadow-md text-center">
+    <h1 class="text-5xl font-bold text-gray-900">Nutzungsbedingungen</h1>
+    <p class="mt-4 text-lg text-gray-600">
+        Letzte Aktualisierung: Februar 2025
+    </p>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="container mx-auto max-w-5xl mt-10 bg-white p-10 rounded-lg shadow-md mb-16">
+    
+    <!-- Einleitung -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900">1. Einführung</h2>
+        <p class="mt-4 text-gray-600 text-lg">
+            Willkommen bei <b>CheckMate</b>!  
+            Durch die Nutzung unserer Plattform stimmen Sie den folgenden Bedingungen zu.  
+            Bitte lesen Sie diese sorgfältig durch.
+        </p>
+    </section>
+
+    <!-- Nutzung der Plattform -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900">2. Nutzung der Plattform</h2>
+        <ul class="list-disc list-inside mt-4 text-gray-600 text-lg">
+            <li>CheckMate dient der digitalen Verwaltung von Besucherregistrierungen für Unternehmen.</li>
+            <li>Die Nutzung erfolgt gemäß geltendem Recht und unterliegt unseren Datenschutzrichtlinien.</li>
+            <li>Unzulässige oder missbräuchliche Nutzung der Plattform ist untersagt.</li>
+        </ul>
+    </section>
+
+    <!-- Datenschutz -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900">3. Datenschutz</h2>
+        <p class="mt-4 text-gray-600 text-lg">
+            Der Schutz Ihrer Daten hat für uns oberste Priorität.  
+            Unsere vollständige Datenschutzrichtlinie finden Sie <a href="" class="text-blue-600 hover:underline">hier</a>.
+        </p>
+    </section>
+
+    <!-- Haftungsausschluss -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900">4. Haftungsausschluss</h2>
+        <p class="mt-4 text-gray-600 text-lg">
+            CheckMate übernimmt keine Verantwortung für Schäden, die durch fehlerhafte oder unvollständige Informationen entstehen.  
+            Die Nutzung der Plattform erfolgt auf eigenes Risiko.
+        </p>
+    </section>
+
+    <!-- Änderungen der Nutzungsbedingungen -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900">5. Änderungen der Nutzungsbedingungen</h2>
+        <p class="mt-4 text-gray-600 text-lg">
+            CheckMate behält sich das Recht vor, diese Bedingungen jederzeit zu aktualisieren.  
+            Änderungen werden auf dieser Seite veröffentlicht.
+        </p>
+    </section>
+
+    <!-- Kontakt -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900">6. Kontakt</h2>
+        <p class="mt-4 text-gray-600 text-lg">
+            Bei Fragen zu unseren Nutzungsbedingungen kontaktieren Sie uns unter  
+            <a href="mailto:support@checkmate.com" class="text-blue-600 hover:underline">support@checkmate.com</a>.
+        </p>
+    </section>
+
+    <!-- Bestätigung -->
+    <div class="mt-12 text-center">
+        <p class="text-gray-600 text-lg">
+            Durch die Nutzung unserer Plattform stimmen Sie diesen Bedingungen zu.
+        </p>
+        <a href="/" class="mt-4 inline-block px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-blue-700 transition">
+            Zurück zur Startseite
+        </a>
+    </div>
+
+</div>
+{% endblock content %}

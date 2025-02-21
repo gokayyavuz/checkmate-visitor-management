@@ -1,29 +1,60 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}CheckMate {% endblock title %}</title>
-    <link rel="icon" type="image/png" href="static/main/favicon.png">
+    <link rel="icon" type="image/png" href="{% static 'main/favicon_.png' %}">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex flex-col min-h-screen bg-gray-100 text-gray-900">
 
     <!-- Navbar -->
     <nav class="bg-white shadow-md">
-        <div class="container mx-auto flex items-center justify-between px-6 py-4">
-            <div class="flex-1"></div>
-            <div class="flex-1 flex justify-center">
-                <a href="http://127.0.0.1:8000/" class="text-2xl font-bold text-blue-600">CheckMate</a>
+        <div class="container mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+            <!-- Logo (links) -->
+            <a href="http://127.0.0.1:8000/" class="text-2xl font-bold text-blue-600">CheckMate</a>
+    
+            <!-- Desktop Navigation & Buttons (rechts) -->
+            <div class="hidden md:flex items-center space-x-6 ml-auto">
+                <a href="http://127.0.0.1:8000/" class="hover:text-blue-500">Home</a>
+                <a href="{% url 'aboutus' %}" class="hover:text-blue-500">Über uns</a>
+                <a href="{% url 'contact' %}" class="hover:text-blue-500">Kontakt</a>
+                <a href="#" class="px-4 py-2 text-blue-600 font-semibold border border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">Anmelden</a>
+                <a href="#" class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">Registrieren</a>
             </div>
-            <div class="flex-1 flex justify-end space-x-6">
-                <a href="/finish/" class="text-gray-700 hover:text-blue-600">Home</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600">Services</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600">Contact</a>
-            </div>
+    
+            <!-- Hamburger Icon (für Mobile) -->
+            <button id="menu-btn" class="block md:hidden focus:outline-none">
+                <svg class="w-8 h-8 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    
+        <!-- Mobile Navigation (versteckt sich standardmäßig) -->
+        <div id="mobile-menu" class="hidden md:hidden flex flex-col items-start space-y-4 px-6 py-4 bg-white shadow-md">
+            <a href="#" class="hover:text-blue-500">Home</a>
+            <a href="#" class="hover:text-blue-500">Über uns</a>
+            <a href="{% url 'contact' %}" class="hover:text-blue-500">Kontakt</a>
+            <hr class="border-gray-300 w-full">
+            <!-- Login / Register Buttons (für Mobile) -->
+            <a href="#" class="px-4 py-2 text-blue-600 font-semibold border border-blue-600 rounded-lg text-center hover:bg-blue-600 hover:text-white transition w-full">Anmelden</a>
+            <a href="#" class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg text-center hover:bg-blue-700 transition w-full">Registrieren</a>
         </div>
     </nav>
-
+    
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+    
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+    
     <!-- Hauptinhalt -->
     <div class="flex-1 container mx-auto mt-12 px-6">
         {% block header %}
@@ -35,7 +66,7 @@
     </div>
     {% block content %}
     {% endblock content %}
-    
+
     <!-- Footer -->
     <footer class="bg-white shadow-md w-full mt-auto">
         <div class="container mx-auto px-6 py-8">
@@ -46,10 +77,10 @@
                 </p>
             </div>
             <div class="flex justify-center mt-4 space-x-6">
-                <a href="#" class="text-gray-600 hover:text-blue-600">About</a>
+                <a href="{% url 'aboutus' %}" class="text-gray-600 hover:text-blue-600">About</a>
                 <a href="#" class="text-gray-600 hover:text-blue-600">Privacy Policy</a>
-                <a href="#" class="text-gray-600 hover:text-blue-600">Terms of Service</a>
-                <a href="#" class="text-gray-600 hover:text-blue-600">Contact</a>
+                <a href="{% url 'terms' %}" class="text-gray-600 hover:text-blue-600">Terms of Service</a>
+                <a href="{% url 'contact' %}" class="text-gray-600 hover:text-blue-600">Contact</a>
             </div>
             <hr class="my-6 border-gray-300">
             <p class="text-center text-gray-500 text-sm">
