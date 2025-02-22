@@ -1,5 +1,8 @@
 from django.db import models
 from datetime import date
+from django.contrib.auth.models import AbstractUser
+from django.utils.text import slugify
+
 # Create your models here.
 
 class Besucher(models.Model):
@@ -21,5 +24,18 @@ class Besucher(models.Model):
 
     def __str__(self):
         return f"{self.vorname} {self.nachname} - {self.standort}"
-    
 
+    
+class Company(AbstractUser):
+    name = models.CharField(max_length=200, blank=False, null=False, unique=True)
+    industry = models.CharField(max_length=200, blank=False, null=False)
+    website = models.URLField(blank=False, null=True)
+    slug = models.SlugField(blank=False, null=False, unique=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args,**kwargs)
+
+    def __str__(self):
+        return f"{self.name} - {self.slug}"

@@ -1,5 +1,7 @@
 from django import forms
 from . import models
+from .models import Company
+from django.contrib.auth.forms import UserCreationForm
 
 class RegisterVisitor(forms.ModelForm):
     class Meta:
@@ -30,3 +32,10 @@ class RegisterVisitor(forms.ModelForm):
                 'required': "Bitte geben Sie den Grund Ihres Besuchs an."
             }
         }
+
+
+class CompanyRegisterForm(UserCreationForm):
+    class Meta:
+        model = models.Company
+        fields = ["username", "email", "password1", "password2", "name", "industry", "website"]
+    

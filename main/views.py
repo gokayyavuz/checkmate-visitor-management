@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import login
+from django.utils.text import slugify
 from .models import Besucher
 from django.http import HttpResponse
-from .forms import RegisterVisitor
+from .forms import RegisterVisitor, CompanyRegisterForm
 
 # Create your views here.
 
@@ -22,6 +24,18 @@ def formular(request):
 
     return render(request, 'main/formular.html', {'form': form})
 
+def register(request):
+    if request.method == "POST":
+        form = CompanyRegisterForm(request.POST)
+        if form.is_valid():
+            company = form.save()
+            company.slug = slugify(company.name)
+            company.save()
+            login(request, company)
+            return redirect("company_detail", slug=company.slug)
+        else:
+            form = CompanyRegisterForm()
+        return render(request, "registration/register.html", {"form": form})
 
 
 def finishView(request, besucher_id):
