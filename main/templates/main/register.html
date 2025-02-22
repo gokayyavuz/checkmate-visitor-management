@@ -1,0 +1,77 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Registrieren - CheckMate{% endblock %}
+
+{% block header %} {% endblock %}
+
+{% block content %}
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="max-w-3xl w-full bg-white shadow-lg rounded-lg p-12">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-6">Registrieren</h2>
+        <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+            Erstelle ein Konto, um die digitale Besucherverwaltung von CheckMate zu nutzen.
+        </p>
+
+        <form action="{% url 'register' %}" method="post" class="grid grid-cols-2 gap-8">
+            {% csrf_token %}
+
+            <!-- Firmenname -->
+            <div class="col-span-2">
+                <label for="company_name" class="block text-gray-700 font-semibold">Firmenname</label>
+                <input type="text" id="company_name" name="name" class="w-full border border-gray-300 p-4 rounded-md focus:ring-2 focus:ring-blue-500" placeholder="Firmenname" required>
+            </div>
+
+            <!-- Vorname -->
+            <div class="col-span-1">
+                <label for="first_name" class="block text-gray-700 font-semibold">Vorname</label>
+                <input type="text" id="first_name" name="first_name" class="w-full border border-gray-300 p-4 rounded-md focus:ring-2 focus:ring-blue-500" placeholder="Dein Vorname" required>
+            </div>
+
+            <!-- Nachname -->
+            <div class="col-span-1">
+                <label for="last_name" class="block text-gray-700 font-semibold">Nachname</label>
+                <input type="text" id="last_name" name="last_name" class="w-full border border-gray-300 p-4 rounded-md focus:ring-2 focus:ring-blue-500" placeholder="Dein Nachname" required>
+            </div>
+
+            <!-- E-Mail -->
+            <div class="col-span-2">
+                <label for="email" class="block text-gray-700 font-semibold">E-Mail-Adresse</label>
+                <input type="email" id="email" name="email" class="w-full border border-gray-300 p-4 rounded-md focus:ring-2 focus:ring-blue-500" placeholder="dein@email.com" required>
+            </div>
+
+            <!-- Passwort -->
+            <div class="col-span-1">
+                <label for="password1" class="block text-gray-700 font-semibold">Passwort</label>
+                <input type="password" id="password1" name="password1" class="w-full border border-gray-300 p-4 rounded-md focus:ring-2 focus:ring-blue-500" placeholder="Passwort" required>
+            </div>
+
+            <!-- Passwort wiederholen -->
+            <div class="col-span-1">
+                <label for="password2" class="block text-gray-700 font-semibold">Passwort wiederholen</label>
+                <input type="password" id="password2" name="password2" class="w-full border border-gray-300 p-4 rounded-md focus:ring-2 focus:ring-blue-500" placeholder="Passwort bestätigen" required>
+            </div>
+
+            <!-- Geschäftsbedingungen -->
+            <div class="col-span-2 flex items-center">
+                <input type="checkbox" id="terms" name="terms" class="w-5 h-5 border-gray-300 focus:ring-blue-500" required>
+                <label for="terms" class="ml-2 text-gray-700 text-sm">
+                    Ich akzeptiere die <a href="{% url 'terms' %}" class="text-blue-600 hover:underline">Nutzungsbedingungen</a> und <a href="" class="text-blue-600 hover:underline">Datenschutzrichtlinien</a>.
+                </label>
+            </div>
+
+            <!-- Absenden Button -->
+            <div class="col-span-2 flex justify-center">
+                <button type="submit" class="w-1/2 bg-blue-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition">
+                    Registrieren
+                </button>
+            </div>
+        </form>
+
+        <!-- Login-Link -->
+        <p class="text-center text-gray-600 mt-6">
+            Bereits ein Konto? <a href="{% url 'login' %}" class="text-blue-600 hover:underline">Hier anmelden</a>.
+        </p>
+    </div>
+</div>
+{% endblock %}

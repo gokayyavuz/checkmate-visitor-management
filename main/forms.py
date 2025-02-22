@@ -36,6 +36,24 @@ class RegisterVisitor(forms.ModelForm):
 
 class CompanyRegisterForm(UserCreationForm):
     class Meta:
-        model = models.Company
-        fields = ["username", "email", "password1", "password2", "name", "industry", "website"]
-    
+        model = Company
+        fields = ["email", "name", "industry", "website", "password1", "password2"]
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.username = user.email 
+        if commit:
+            user.save()
+        return user
+
+class CompanyCreationForm(UserCreationForm):
+    class Meta:
+        model = Company
+        fields = ["email", "name", "industry", "website", "password1", "password2"]
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.username = user.email
+        if commit:
+            user.save()
+        return user
