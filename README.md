@@ -13,14 +13,14 @@ Visitors can register through a form, while receptionists can manage visitor log
 ---
 
 ## 🔮 Planned Features
-🚀 Multi-Location Support – Businesses with multiple locations can manage visitors separately for each site.
-🔒 Admin Access Control – Different roles (e.g., Manager, Receptionist) with customized permissions.
-📊 Dashboard Statistics – A visual overview of visitor numbers, peak hours, and trends.
-📩 Visitor Email Confirmation – Visitors receive a confirmation email after signing up.
-💾 Visitor Data Export – Admins can export visitor logs as CSV or PDF files.
-🔄 QR Code Check-in – Visitors receive a QR code for faster reception check-ins.
-📆 Visitor Appointment Scheduling – Businesses can organize and manage planned visits.
-🔔 Host Notifications – Automatic email/SMS notifications to the host before a visitor arrives.
+🚀 Multi-Location Support – Businesses with multiple locations can manage visitors separately for each site.  
+🔒 Admin Access Control – Different roles (e.g., Manager, Receptionist) with customized permissions.  
+📊 Dashboard Statistics – A visual overview of visitor numbers, peak hours, and trends.  
+📩 Visitor Email Confirmation – Visitors receive a confirmation email after signing up.  
+💾 Visitor Data Export – Admins can export visitor logs as CSV or PDF files.  
+🔄 QR Code Check-in – Visitors receive a QR code for faster reception check-ins.  
+📆 Visitor Appointment Scheduling – Businesses can organize and manage planned visits.  
+🔔 Host Notifications – Automatic email/SMS notifications to the host before a visitor arrives.  
 
 ---
 
